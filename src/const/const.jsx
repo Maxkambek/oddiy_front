@@ -41,7 +41,7 @@ export const defaultOptions = {
       padding: "0px!important",
       // marginRight: "100px",
       fontWeight: 500,
-      display: "flex",
+      //       display: "flex",
       fontSize: "14px",
     }),
     indicatorSeparator: (styles) => ({

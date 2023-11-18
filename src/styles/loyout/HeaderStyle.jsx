@@ -4,11 +4,15 @@ export const HeaderStyle = styled.div`
   & .header {
     border-bottom: 3px solid #3f48cc;
     background-color: white;
+    position: relative;
     & .header_items {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 32px 0px;
+      @media (max-width: 992px) {
+        padding: 20px 0px;
+      }
       .logo {
         @media (max-width: 992px) {
           img {
@@ -36,7 +40,7 @@ export const HeaderStyle = styled.div`
             outline: none;
             background-color: #edeeff;
             padding-left: 35px;
-            padding-right: 35px;
+            padding-right: 75px;
             /* width: 80%; */
             ::placeholder {
               color: #b0b5ff;
@@ -62,9 +66,11 @@ export const HeaderStyle = styled.div`
         }
       }
       .account {
+        cursor: pointer;
         display: flex;
         justify-content: center;
         align-items: center;
+
         p {
           margin-bottom: 0;
           color: #3f48cc;
@@ -88,6 +94,16 @@ export const HeaderStyle = styled.div`
           }
         }
       }
+    }
+    .logout-modal {
+      margin-top: 10px;
+      border-radius: 7px;
+      padding: 10px 20px;
+      z-index: 999;
+      background-color: white;
+      position: absolute;
+      box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+      /* right: 5%; */
     }
   }
 `;

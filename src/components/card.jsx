@@ -6,7 +6,16 @@ import { CardStyle } from "../styles/components/CardStyle";
 export default function Card({ data }) {
   return (
     <CardStyle>
-      <img src="" alt="" className="img-card" />
+      <img
+        src=""
+        alt=""
+        className="img-card"
+        onError={(e) => {
+          e.target.src =
+            "https://api.umirov.uz/storage/userdetails/August2023/dcDZk5taPQxTNVIJgmE4.jpg";
+          // some replacement image
+        }}
+      />
       <p>
         {data?.name} {" " + data?.id}
       </p>

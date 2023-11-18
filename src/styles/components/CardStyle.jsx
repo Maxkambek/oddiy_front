@@ -12,6 +12,10 @@ export const CardStyle = styled.div`
     height: 221px;
     border: none;
     margin-bottom: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    width: 100%;
   }
   p {
     color: #3f48cc;

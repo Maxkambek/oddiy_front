@@ -8,12 +8,12 @@ export const HomeStyles = styled.div`
     font-size: 40px;
     font-weight: 400;
     margin: 0;
+    @media (max-width: 992px) {
+      font-size: 28px;
+    }
   }
   .categories {
     margin-top: 12px;
-    /* display: grid; */
-    /* grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); */
-    /* gap: 26px; */
     display: flex;
     overflow-x: scroll;
     margin-bottom: 80px;

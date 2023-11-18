@@ -4,9 +4,11 @@ import { CategoryStyle } from "../styles/components/CategoryStyle";
 /* eslint-disable react/prop-types */
 export default function Category({ data }) {
   return (
-    <CategoryStyle bg={data?.bg} marginR={data?.margiR}>
+    <CategoryStyle bg={data?.bg} marginr={data?.marginr}>
       <Link to={data?.link}>
-        <img src="" alt="" />
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <img src={data?.img} alt="" />
+        </div>
         <p>{data?.name}</p>
       </Link>
     </CategoryStyle>
