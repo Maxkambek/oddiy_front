@@ -1,22 +1,6 @@
 :root {
   font-family: "Gilroy", sans-serif;
 }
-* {
-  margin: 0;
-  padding: 0;
-}
-.container {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-left: auto;
-  margin-right: auto;
-  /* max-width: 1450px; */
-  max-width: 1920px;
-  padding-left: 140px;
-  padding-right: 156px;
-  @media screen {
-  }
-}
 @font-face {
   src: url("/fonts/Gilroy-SemiBold.ttf");
   font-family: "Gilroy-SemiBold";
@@ -47,4 +31,43 @@
   font-style: normal;
   font-display: auto;
   font-weight: 400;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  max-width: 1624px;
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f48cc;
+}
+@media (max-width: 1600px) {
+  .container {
+    max-width: 1450px;
+  }
+}
+@media (max-width: 1530px) {
+  .container {
+    max-width: 1450px;
+    padding: 0 36px;
+    padding-left: 36px;
+    padding-right: 36px;
+  }
+}
+@media (max-width: 900px) {
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
