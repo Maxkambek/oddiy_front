@@ -12,10 +12,19 @@ export const CardStyle = styled.div`
     height: 221px;
     border: none;
     margin-bottom: 15px;
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    width: 100%;
+    position: relative;
+    img {
+      transition: 1s ease;
+      -o-object-fit: cover;
+      object-fit: cover;
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 10px;
+      background: #edeeff;
+    }
   }
   p {
     color: #3f48cc;

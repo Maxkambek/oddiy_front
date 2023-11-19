@@ -43,10 +43,7 @@ export const LoginStyle = styled.div`
         width: 418px;
         margin-bottom: 30px;
         outline: none;
-        ::placeholder {
-          color: #b0b5ff;
-          font-family: "Gilroy-Regular";
-        }
+
         @media (max-width: 450px) {
           width: 100%;
         }
@@ -56,6 +53,10 @@ export const LoginStyle = styled.div`
           font-size: 15px;
           margin-bottom: 20px;
         }
+      }
+      input::placeholder {
+        color: #b0b5ff;
+        font-family: "Gilroy-Regular";
       }
       .form-text {
         margin: 10px 0;

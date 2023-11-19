@@ -5,7 +5,7 @@ import Footer from "./Footer";
 
 const StyleComponents = styled.div`
   transition: all 0.25s linear;
-  min-height: 200px;
+  min-height: 600px;
   @media (max-width: 500px) {
     /* padding: 50px 20px; */
   }

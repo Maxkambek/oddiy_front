@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const AdvantagesStyle = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(295px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
   gap: 31px;
   margin-top: 33px;
   .advantages-items {
@@ -16,6 +16,7 @@ export const AdvantagesStyle = styled.div`
     padding: 40px;
     img {
       margin-right: 20px;
+      width: 60px;
     }
     .texts {
       .title {
@@ -23,12 +24,16 @@ export const AdvantagesStyle = styled.div`
         font-family: "Gilroy-SemiBold";
         font-size: 15px;
         font-weight: 400;
+        margin-bottom: 2px;
+        line-height: normal;
       }
       .desc {
         color: #3f48cc;
         font-family: "Gilroy-Regular";
         font-size: 10px;
         font-weight: 400;
+        line-height: normal;
+        text-align: left;
       }
     }
   }

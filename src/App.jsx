@@ -5,11 +5,11 @@ import { ChakraProvider } from "@chakra-ui/react";
 function App() {
   return (
     <>
-      <BrowserRouter>
-        <ChakraProvider>
+      <ChakraProvider>
+        <BrowserRouter>
           <Routers />
-        </ChakraProvider>
-      </BrowserRouter>
+        </BrowserRouter>
+      </ChakraProvider>
     </>
   );
 }

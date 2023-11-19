@@ -10,6 +10,9 @@ export const HeaderStyle = styled.div`
       justify-content: space-between;
       align-items: center;
       padding: 32px 0px;
+      @media (max-width: 1536px) {
+        padding: 25px 0;
+      }
       @media (max-width: 992px) {
         padding: 20px 0px;
       }
