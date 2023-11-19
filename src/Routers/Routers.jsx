@@ -8,6 +8,9 @@ import Ayollaruchun from "../pages/Ayollaruchun";
 import Erkaklaruchun from "../pages/Erkaklaruchun";
 import Avtomobiluchun from "../pages/Avtmobiluchun";
 import Salomatlikuchun from "../pages/Salomatlikuchun";
+import Login from "../pages/Auth/Login";
+import SignUp from "../pages/Auth/SignUp";
+import ProductItem from "../pages/ProductItem";
 
 const Routers = () => {
   return (
@@ -15,6 +18,12 @@ const Routers = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
+        <Route>
+          <Route path="/login" element={<Login />} />
+        </Route>
+        <Route>
+          <Route path="/sign-up" element={<SignUp />} />
+        </Route>
         <Route>
           <Route path="/elektronika" element={<Elektironika />} />
         </Route>
@@ -38,6 +47,9 @@ const Routers = () => {
         </Route>
         <Route>
           <Route path="salomatlik-uchun" element={<Salomatlikuchun />} />
+        </Route>
+        <Route>
+          <Route path="/product/:id" element={<ProductItem />} />
         </Route>
       </Routes>
     </>

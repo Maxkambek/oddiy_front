@@ -13,12 +13,25 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { StyledElement } from "../../pages/components/AccountModalStyle";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
+  const [active, setActive] = useState(false);
   const btnRef = React.useRef();
+  // const ref = useRef(null);
+
+  // useEffect(() => {
+  //   const onClick = () => setActive(!active);
+  //   if (active) {
+  //     window.addEventListener("click", onClick);
+  //   }
+  //   return () => {
+  //     window.removeEventListener("click", onClick);
+  //   };
+  // }, [active]);
+
   return (
     <HeaderStyle>
       <div className="header">
@@ -57,12 +70,59 @@ export default function Header() {
                   style={{ color: "#3f48cc" }}
                 ></span>
               </Link>
-              <div style={{ position: "relative" }}>
-                <div className="account">
+              <StyledElement style={{ position: "relative" }} active={active}>
+                <div
+                  className="account"
+                  onClick={() => {
+                    setActive(!active);
+                  }}
+                >
                   <img src="/img/Vector.png" alt="" />
                   <p>Hisob</p>
                 </div>
-              </div>
+                <ul>
+                  <div>
+                    <Link to={"/login"}>
+                      <span
+                        style={{
+                          display: "flex",
+                          justifyContent: "left",
+                          alignItems: "center",
+                        }}
+                      >
+                        <img
+                          src="/img/Vector.png"
+                          alt=""
+                          style={{ width: "19px", marginRight: "5px" }}
+                        />
+                        Kirish
+                      </span>
+                    </Link>
+                  </div>
+                  <div>
+                    <Link to={"/sign-up"}>
+                      <span
+                        style={{
+                          display: "flex",
+                          justifyContent: "left",
+                          alignItems: "center",
+                        }}
+                      >
+                        <span
+                          style={{
+                            width: "19px",
+                            height: "19px",
+                            marginRight: "5px",
+                            color: "#3f48cc",
+                          }}
+                          className="fa-solid fa-right-to-bracket fa-md"
+                        ></span>
+                        Ro'yxatdan o'tish
+                      </span>
+                    </Link>
+                  </div>
+                </ul>
+              </StyledElement>
             </div>
           </div>
         </div>
@@ -89,7 +149,6 @@ export default function Header() {
           </DrawerHeader>
 
           <DrawerBody></DrawerBody>
-
           <DrawerFooter></DrawerFooter>
         </DrawerContent>
       </Drawer>
