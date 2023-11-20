@@ -2,76 +2,11 @@ import Advantages from "../components/advantages";
 import Card from "../components/card";
 import Category from "../components/category";
 import Loyout from "../components/loyout/Loyout";
+import { categories } from "../const/const";
 
 import { HomeStyles } from "../styles/HomeStyle";
 
 export default function Home() {
-  const categories = [
-    {
-      id: 1,
-      name: "Elektronika",
-      img: "/img/elektironika.svg",
-      bg: "#FFF9ED",
-      marginr: "26px",
-      link: "/elektronika",
-    },
-    {
-      id: 2,
-      name: "Go‘zallik",
-      img: "/img/gozallik.svg",
-      bg: "#FAEDFF",
-      marginr: "26px",
-      link: "/gozallik",
-    },
-    {
-      id: 3,
-      name: "Sovg‘alar",
-      img: "/img/sovgalar.svg",
-      bg: "#EDFDFF",
-      marginr: "26px",
-      link: "/sovgalar",
-    },
-    {
-      id: 4,
-      name: "Ayollar uchun",
-      img: "/img/ayollaruchun.svg",
-      bg: "#FFF2ED",
-      marginr: "26px",
-      link: "/ayollar-uchun",
-    },
-    {
-      id: 5,
-      name: "Erkaklar uchun",
-      img: "/img/erkaklaruchun.svg",
-      bg: "#EDFFF1",
-      marginr: "26px",
-      link: "/erkaklar-uchun",
-    },
-    {
-      id: 6,
-      name: "Bolalar uchun",
-      img: "/img/bolalaruchun.svg",
-      bg: "#FFEDFE",
-      marginr: "26px",
-      link: "/bolalar-uchun",
-    },
-    {
-      id: 7,
-      name: "Avtomobil uchun",
-      img: "/img/bolalaruchun.svg",
-      bg: "#F5FFED",
-      marginr: "26px",
-      link: "/avtomobil-uchun",
-    },
-    {
-      id: 8,
-      name: "Salomatlik uchun",
-      img: "/img/bolalaruchun.svg",
-      bg: "#EDF3FF",
-      marginr: "0px",
-      link: "/salomatlik-uchun",
-    },
-  ];
   const popular = [
     { id: 1, name: "Mahsulot", img: "", price: "30000" },
     { id: 2, name: "Mahsulot", img: "", price: "30000" },

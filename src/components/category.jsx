@@ -5,7 +5,7 @@ import { CategoryStyle } from "../styles/components/CategoryStyle";
 export default function Category({ data }) {
   return (
     <CategoryStyle bg={data?.bg} marginr={data?.marginr}>
-      <Link to={data?.link}>
+      <Link to={`category/${data?.slug}`}>
         <div style={{ display: "flex", justifyContent: "center" }}>
           <img src={data?.img} alt="" />
         </div>
