@@ -52,6 +52,12 @@
 ::-webkit-scrollbar-thumb {
   background: #3f48cc;
 }
+.switch-wrapper > div {
+  position: absolute;
+}
+.switch-wrapper {
+  position: relative;
+}
 @media (max-width: 1600px) {
   .container {
     max-width: 1450px;

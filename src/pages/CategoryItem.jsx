@@ -41,7 +41,7 @@ export default function CategoriesItem() {
             </div>
             <div className="cards">
               {product.map((item, i) => {
-                return <Card key={i + "qmnwe"} data={item} />;
+                return <Card key={i + "qmnwe"} data={item} index={i} />;
               })}
             </div>
           </div>

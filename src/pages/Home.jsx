@@ -1,3 +1,4 @@
+import { TransitionGroup } from "react-transition-group";
 import Advantages from "../components/advantages";
 import Card from "../components/card";
 import Category from "../components/category";
@@ -18,17 +19,20 @@ export default function Home() {
       <HomeStyles>
         <div className="container">
           <h2 className="title">Turkumlar</h2>
-          <div className="categories">
-            {categories.map((item, i) => {
-              return <Category data={item} key={i + "gfds"} />;
-            })}
-          </div>
+          <TransitionGroup cascade>
+            <div className="categories">
+              {categories.map((item, i) => {
+                return <Category data={item} key={i + "gfds"} index={i} />;
+              })}
+            </div>
+          </TransitionGroup>
 
           <div className="popular-categories">
             <div className="title">Mashhur maxsulotlar</div>
+
             <div className="popular-categories-items">
               {popular.map((item, i) => {
-                return <Card key={i + "popular"} data={item} />;
+                return <Card key={i + "popular"} data={item} index={i} />;
               })}
             </div>
           </div>
@@ -36,7 +40,7 @@ export default function Home() {
             <div className="title">Yangi maxsulotlar</div>
             <div className="popular-categories-items">
               {popular.map((item, i) => {
-                return <Card key={i + "popular"} data={item} />;
+                return <Card key={i + "popular"} data={item} index={i} />;
               })}
             </div>
           </div>

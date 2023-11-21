@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router";
+import { Routes, Route, useLocation } from "react-router";
 import Home from "../pages/Home";
 import NotFound from "../pages/NotFound";
 import Login from "../pages/Auth/Login";
@@ -7,9 +7,10 @@ import ProductItem from "../pages/ProductItem";
 import CategoriesItem from "../pages/CategoryItem";
 
 const Routers = () => {
+  const location = useLocation();
   return (
     <>
-      <Routes>
+      <Routes key={location.pathname} location={location}>
         <Route path="/" element={<Home />} />
         <Route path="*" element={<NotFound />} />
         <Route>

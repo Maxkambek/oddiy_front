@@ -31,6 +31,7 @@ export const HeaderStyle = styled.div`
       }
       .search {
         form {
+          width: 636px;
           border-radius: 6px;
           border: 3px solid #3f48cc;
           padding: 24px;
@@ -39,24 +40,29 @@ export const HeaderStyle = styled.div`
           background-color: #edeeff;
           align-items: center;
           display: flex;
+          @media (max-width: 1200px) {
+            width: 550px;
+          }
           input {
             outline: none;
             background-color: #edeeff;
             padding-left: 35px;
             padding-right: 75px;
-            /* width: 80%; */
+            width: calc(100% - 166px);
             ::placeholder {
               color: #b0b5ff;
               font-family: "Gilroy-Regular";
               font-size: 15px;
             }
-          }
-          ::after {
-            content: "";
-            clear: both;
-            display: table;
+            ::after {
+              width: 15px;
+              content: "";
+              clear: both;
+              display: table;
+            }
           }
         }
+
         @media (max-width: 992px) {
           display: none;
         }

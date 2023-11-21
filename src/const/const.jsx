@@ -44,6 +44,7 @@ export const defaultOptions = {
       fontWeight: 500,
       //       display: "flex",
       fontSize: "14px",
+      width: "100px",
     }),
     indicatorSeparator: (styles) => ({
       ...styles,
