@@ -34,7 +34,7 @@ const Axios = () => {
   const token = localStorage.getItem("token");
   const defaultOptions = {
     baseURL: API_URL,
-    headers: token ? { Authorization: `Bearer ${token}` } : {},
+    headers: token ? { Authorization: `Token ${token}` } : {},
     params: { lan: localStorage.getItem("i18nextLng") || "uz" },
   };
   return {

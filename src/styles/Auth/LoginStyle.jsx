@@ -31,32 +31,42 @@ export const LoginStyle = styled.div`
     }
     form {
       display: grid;
-      input {
-        height: 60px;
-        border-radius: 10px;
-        background: #edeeff;
-        font-family: "Gilroy-Regular";
-        font-size: 20px;
-        font-weight: 400;
-        line-height: normal;
-        padding: 23px 16px;
-        width: 418px;
+      .input {
         margin-bottom: 30px;
-        outline: none;
+        display: flex;
+        flex-direction: column;
+        input {
+          height: 60px;
+          border-radius: 10px;
+          background: #edeeff;
+          font-family: "Gilroy-Regular";
+          font-size: 20px;
+          font-weight: 400;
+          line-height: normal;
+          padding: 23px 16px;
+          width: 418px;
+          outline: none;
 
-        @media (max-width: 450px) {
-          width: 100%;
+          @media (max-width: 450px) {
+            width: 100%;
+          }
+          @media (max-width: 992px) {
+            padding: 15px 16px;
+            height: 50px;
+            font-size: 15px;
+          }
+        }
+        span {
+          margin-top: 5px;
+          color: red;
+        }
+        input::placeholder {
+          color: #b0b5ff;
+          font-family: "Gilroy-Regular";
         }
         @media (max-width: 992px) {
-          padding: 15px 16px;
-          height: 50px;
-          font-size: 15px;
           margin-bottom: 20px;
         }
-      }
-      input::placeholder {
-        color: #b0b5ff;
-        font-family: "Gilroy-Regular";
       }
       .form-text {
         margin: 10px 0;

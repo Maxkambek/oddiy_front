@@ -26,7 +26,7 @@ export const HomeStyles = styled.div`
     .popular-categories-items {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 87px;
+      gap: 70px;
     }
   }
 `;

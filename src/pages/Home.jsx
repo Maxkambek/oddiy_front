@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { TransitionGroup } from "react-transition-group";
 import Advantages from "../components/advantages";
 import Card from "../components/card";
@@ -6,14 +7,39 @@ import Loyout from "../components/loyout/Loyout";
 import { categories } from "../const/const";
 
 import { HomeStyles } from "../styles/HomeStyle";
+import Axios from "../utils/httpClinet";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const popular = [
-    { id: 1, name: "Mahsulot", img: "", price: "30000" },
-    { id: 2, name: "Mahsulot", img: "", price: "30000" },
-    { id: 3, name: "Mahsulot", img: "", price: "30000" },
-    { id: 4, name: "Mahsulot", img: "", price: "30000" },
-  ];
+  const [product, setProduct] = useState([]);
+  const [category, setCategory] = useState([]);
+
+  useEffect(() => {
+    getCategory();
+    getProduct();
+  }, []);
+
+  const getCategory = () => {
+    Axios()
+      .get("/main/category/")
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => {
+        console.log(res, "res");
+        setCategory(res.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {});
+  };
+
+  const getProduct = () => {
+    Axios()
+      .get("/main/product/")
+      .then((res) => {
+        setProduct(res?.data);
+      })
+      .catch((err) => console.log(err, "err product"))
+      .finally(() => {});
+  };
   return (
     <Loyout>
       <HomeStyles>
@@ -31,7 +57,7 @@ export default function Home() {
             <div className="title">Mashhur maxsulotlar</div>
 
             <div className="popular-categories-items">
-              {popular.map((item, i) => {
+              {product.map((item, i) => {
                 return <Card key={i + "popular"} data={item} index={i} />;
               })}
             </div>
@@ -39,7 +65,7 @@ export default function Home() {
           <div className="popular-categories">
             <div className="title">Yangi maxsulotlar</div>
             <div className="popular-categories-items">
-              {popular.map((item, i) => {
+              {product.map((item, i) => {
                 return <Card key={i + "popular"} data={item} index={i} />;
               })}
             </div>

@@ -74,7 +74,6 @@ export const CategoriesItemStyle = styled.div`
         padding: 17px 19px;
         border-radius: 10px;
         background: #3f48cc;
-        box-shadow: 0px 5px 20px 0px rgba(63, 72, 204, 0.5);
         margin-bottom: 47px;
         p {
           margin: 0;
@@ -84,6 +83,16 @@ export const CategoriesItemStyle = styled.div`
           font-style: normal;
           font-weight: 400;
           line-height: normal;
+        }
+        .products-item_img {
+          display: none;
+          transition: all 0.5s ease;
+        }
+      }
+      .products-item:hover {
+        box-shadow: 0px 5px 20px 0px rgba(63, 72, 204, 0.5);
+        .products-item_img {
+          display: block;
         }
       }
       .products-item:last-child {

@@ -6,8 +6,8 @@
 // export const IMG_URL = `http://${API_HOST}/storage/`;
 // export const FILE_URL = `http://${API_HOST}/storage/`;
 
-export const API_HOST = "api.punkapi.com";
-export const WS_HOST = "api.punkapi.com";
-export const API_URL = `https://${API_HOST}/`;
-export const IMG_URL = `https://${API_HOST}/storage/`;
-export const FILE_URL = `https://${API_HOST}/storage/`;
+export const API_HOST = "164.90.180.208";
+export const WS_HOST = "164.90.180.208";
+export const API_URL = `http://${API_HOST}/`;
+export const IMG_URL = `http://${API_HOST}/storage/`;
+export const FILE_URL = `http://${API_HOST}/storage/`;

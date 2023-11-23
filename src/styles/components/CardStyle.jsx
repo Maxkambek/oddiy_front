@@ -4,7 +4,10 @@ export const CardStyle = styled.div`
   border-radius: 15px;
   border: 2px solid #3f48cc;
   padding: 40px;
-  height: 380px;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .img-card {
     border-radius: 10px;
     background: #edeeff;
@@ -26,12 +29,19 @@ export const CardStyle = styled.div`
       background: #edeeff;
     }
   }
-  p {
+  .card_name {
     color: #3f48cc;
     font-family: "Gilroy-SemiBold";
-    font-size: 27px;
+    font-size: 26px;
     font-weight: 400;
     margin-bottom: 4px;
+    line-height: normal;
+    .card_name_link {
+      min-height: 24px;
+    }
+    @media (max-width: 1555px) {
+      font-size: 20px;
+    }
   }
   .price {
     display: flex;
@@ -43,11 +53,19 @@ export const CardStyle = styled.div`
       font-weight: 400;
       border-radius: 4px;
       background: #3f48cc;
-      height: 30px;
+      min-height: 30px;
       padding: 0px 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      @media (max-width: 1555px) {
+        font-size: 18px;
+      }
     }
     .buy {
       display: flex;
+      align-items: center;
       cursor: pointer;
       img {
         margin-right: 7px;

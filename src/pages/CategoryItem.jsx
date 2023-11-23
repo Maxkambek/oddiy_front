@@ -30,11 +30,15 @@ export default function CategoriesItem() {
                     key={item?.id + "asdfg"}
                   >
                     <p>{item?.name}</p>
-                    {item?.slug === slug ? (
+                    {/* {item?.slug === slug ? (
                       <>
-                        <img src="/public/img/arrow_right.svg" alt="" />
                       </>
-                    ) : null}
+                    ) : null} */}
+                    <img
+                      src="/public/img/arrow_right.svg"
+                      alt=""
+                      className="products-item_img"
+                    />
                   </Link>
                 );
               })}

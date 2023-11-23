@@ -1,3 +1,4 @@
+import { Fade } from "react-reveal";
 import { AdvantagesStyle } from "../styles/components/Advantages";
 
 export default function Advantages() {
@@ -37,13 +38,15 @@ export default function Advantages() {
     <AdvantagesStyle>
       {advantages.map((item, i) => {
         return (
-          <div className="advantages-items" key={i + "asas"}>
-            <img src={item?.img} alt="" />
-            <div className="texts">
-              <div className="title">{item?.title}</div>
-              <div className="desc">{item?.desc}</div>
+          <Fade bottom delay={50 * i} key={i + "asas"}>
+            <div className="advantages-items">
+              <img src={item?.img} alt="" />
+              <div className="texts">
+                <div className="title">{item?.title}</div>
+                <div className="desc">{item?.desc}</div>
+              </div>
             </div>
-          </div>
+          </Fade>
         );
       })}
     </AdvantagesStyle>
