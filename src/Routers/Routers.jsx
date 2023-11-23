@@ -5,6 +5,7 @@ import Login from "../pages/Auth/Login";
 import SignUp from "../pages/Auth/SignUp";
 import ProductItem from "../pages/ProductItem";
 import CategoriesItem from "../pages/CategoryItem";
+import Success from "../pages/Success";
 
 const Routers = () => {
   const location = useLocation();
@@ -24,6 +25,9 @@ const Routers = () => {
         </Route>
         <Route>
           <Route path="/product/:id" element={<ProductItem />} />
+        </Route>
+        <Route>
+          <Route path="success/:id" element={<Success />} />
         </Route>
       </Routes>
     </>

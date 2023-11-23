@@ -17,7 +17,7 @@ export const ProductItemStyle = styled.div`
         padding: 23px 16px;
         width: 418px;
         outline: none;
-        margin-bottom: 27px;
+
         @media (max-width: 450px) {
           width: 100%;
         }

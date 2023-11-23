@@ -40,11 +40,27 @@ export default function Home() {
       .catch((err) => console.log(err, "err product"))
       .finally(() => {});
   };
+
   return (
     <Loyout>
       <HomeStyles>
         <div className="container">
-          <h2 className="title">Turkumlar</h2>
+          <div className="d-flex flex-wrap align-items-center">
+            <h2 className="title" style={{ marginRight: "85px" }}>
+              Turkumlar
+            </h2>
+            <span
+              style={{
+                color: "#ABB0FF",
+                fontFamily: "Gilroy-Medium",
+                fontSize: "20px",
+                lineHeight: "normal",
+                fontWeight: "400",
+              }}
+            >
+              Turkumlardan birini tanlang!
+            </span>
+          </div>
           <TransitionGroup cascade>
             <div className="categories">
               {categories.map((item, i) => {

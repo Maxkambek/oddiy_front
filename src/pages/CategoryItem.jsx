@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useParams } from "react-router";
 import Loyout from "../components/loyout/Loyout";
 import { categories, product } from "../const/const";
@@ -5,12 +6,24 @@ import { CategoriesItemStyle } from "../styles/CategoriesItemStyle";
 import { Link } from "react-router-dom";
 import Card from "../components/card";
 import Advantages from "../components/advantages";
+import { useEffect, useState } from "react";
+import Axios from "../utils/httpClinet";
 
 export default function CategoriesItem() {
   const { slug } = useParams();
-
+  const [result, setResult] = useState([]);
   const c = categories.filter((item) => item?.slug === slug)[0];
 
+  useEffect(() => {
+    Axios()
+      .get("/main/product/?category_name=Elektronika")
+      .then((res) => {
+        console.log(res?.data, "ss");
+        setResult(res?.data);
+      })
+      .catch((err) => console.log(err, "categoryitem"))
+      .finally(() => {});
+  }, []);
   return (
     <Loyout>
       <div className="container">
