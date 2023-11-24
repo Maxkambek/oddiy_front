@@ -4,13 +4,13 @@ export const CategoryStyle = styled.div`
   background-color: ${({ bg }) => bg};
   display: flex;
   justify-content: center;
-  overflow-x: scroll;
+  /* overflow-x: scroll; */
   height: 260px;
   border-radius: 12px;
   /* align-items: center; */
-  min-width: 175px;
+  /* width: 175px; */
   padding: 71px 33px 33px;
-  margin-right: ${({ marginr }) => marginr};
+  /* margin-right: ${({ marginr }) => marginr}; */
   p {
     color: #3f48cc;
     text-align: center;
@@ -20,11 +20,17 @@ export const CategoryStyle = styled.div`
     line-height: normal;
     margin-top: 33px;
   }
+  img {
+    height: 59px;
+  }
   @media (max-width: 992px) {
     padding: 40px 33px 33px;
     height: 200px;
     p {
       margin-top: 20px;
     }
+  }
+  :hover {
+    /* transition: scale(0.5); */
   }
 `;

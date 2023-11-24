@@ -10,32 +10,54 @@ import { useEffect, useState } from "react";
 import Axios from "../utils/httpClinet";
 
 export default function CategoriesItem() {
-  const { slug } = useParams();
-  const [result, setResult] = useState([]);
-  const c = categories.filter((item) => item?.slug === slug)[0];
+  const { name } = useParams();
+  const [result, setResult] = useState({});
+  const [category, setCategory] = useState([]);
 
   useEffect(() => {
+    getCategoryItem();
+    getCategory();
+  }, []);
+
+  const getCategoryItem = () => {
     Axios()
-      .get("/main/product/?category_name=Elektronika")
+      .get(`/main/product/?category_name=${name}`)
       .then((res) => {
-        console.log(res?.data, "ss");
-        setResult(res?.data);
+        setResult(res?.data[0]);
       })
       .catch((err) => console.log(err, "categoryitem"))
       .finally(() => {});
-  }, []);
+  };
+
+  const getCategory = () => {
+    Axios()
+      .get("/main/category/")
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => {
+        console.log(res, "res");
+        setCategory(res.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {});
+  };
   return (
     <Loyout>
+      {console.log(result, "")}
       <div className="container">
         <CategoriesItemStyle>
           <div className="title_c">
-            <h1>{c?.name}</h1>
+            <h1>
+              {
+                // c?.name
+                result?.category?.name
+              }
+            </h1>
 
-            <img src={c?.title_img} alt="" />
+            <img src={"c?.title_img"} alt="" />
           </div>
           <div className="products">
             <div className="products-items">
-              {categories.map((item) => {
+              {category.map((item) => {
                 return (
                   <Link
                     to={`/category/${item?.slug}`}
@@ -48,7 +70,7 @@ export default function CategoriesItem() {
                       </>
                     ) : null} */}
                     <img
-                      src="/public/img/arrow_right.svg"
+                      src="/img/arrow_right.svg"
                       alt=""
                       className="products-item_img"
                     />

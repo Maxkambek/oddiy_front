@@ -14,8 +14,6 @@ export const HomeStyles = styled.div`
   }
   .categories {
     margin-top: 12px;
-    display: flex;
-    overflow-x: scroll;
     margin-bottom: 80px;
   }
   .popular-categories {
