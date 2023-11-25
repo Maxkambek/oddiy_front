@@ -75,6 +75,7 @@ export const CategoriesItemStyle = styled.div`
         border-radius: 10px;
         background: #3f48cc;
         margin-bottom: 47px;
+
         p {
           margin: 0;
           color: #fff;
@@ -100,9 +101,11 @@ export const CategoriesItemStyle = styled.div`
       }
     }
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
-      gap: 50px;
+      .cards-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 50px;
+      }
       width: calc(100% - 328px - 104px);
     }
     @media (max-width: 1536px) {
@@ -138,9 +141,11 @@ export const CategoriesItemStyle = styled.div`
         }
       }
       .cards {
-        margin-bottom: 50px;
         width: 100%;
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        .cards-items {
+          margin-bottom: 50px;
+          grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
       }
     }
   }

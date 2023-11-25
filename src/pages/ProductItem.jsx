@@ -1,4 +1,4 @@
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Advantages from "../components/advantages";
 import Loyout from "../components/loyout/Loyout";
 import { ProductItemStyle } from "../styles/ProductItemStyle";
@@ -11,11 +11,13 @@ import InputMask from "react-input-mask";
 export default function ProductItem() {
   const { id } = useParams();
   const [product, setProduct] = useState({});
-  const [obj, setObj] = useState({ phone: "" });
+  const [obj, setObj] = useState({ order_phone: "", product: +id });
   const [err, setErr] = useState({});
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
   useEffect(() => {
     getProductItem();
+    window?.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const getProductItem = () => {
@@ -36,7 +38,7 @@ export default function ProductItem() {
       error = {};
     if (
       !(
-        obj?.phone
+        obj?.order_phone
           .replace(/-/g, "")
           .replace(/\(/g, "")
           .replace(/\)/g, "")
@@ -45,18 +47,21 @@ export default function ProductItem() {
           .replace(/_/g, "")?.length >= 12
       )
     ) {
-      error = { ...error, phone: true };
+      error = { ...error, order_phone: true };
       t = false;
     }
-    if (!obj?.name) {
-      error = { ...error, name: true };
+    if (!obj?.order_name) {
+      error = { ...error, order_name: true };
       t = false;
     }
     if (t) {
       Axios()
-        .post("")
+        .post("/customers/requests-create/", obj)
         .then((res) => {
-          console.log(res?.data);
+          console.log(res?.statusText, "ana");
+          if (res?.statusText === "Created") {
+            navigate(`/success/${id}`);
+          }
         })
         .catch()
         .finally(() => {});
@@ -74,7 +79,7 @@ export default function ProductItem() {
         <ProductItemStyle>
           <div className="buy">
             <form onSubmit={Buy}>
-              <div className="buy-inputs d-flex flex-wrap justify-content-center">
+              <div className="buy-inputs ">
                 <div
                   className="d-flex flex-column"
                   style={{ textAlign: "left", marginBottom: "27px" }}
@@ -83,12 +88,12 @@ export default function ProductItem() {
                     type="text"
                     placeholder="Ismingiz:"
                     onChange={handleChange}
-                    name="name"
-                    value={obj?.name}
+                    name="order_name"
+                    value={obj?.order_name}
                   />
-                  {err?.name === true ? (
+                  {err?.order_name === true ? (
                     <Fade bottom>
-                      <span style={{ color: "red" }}>parol kiriting</span>{" "}
+                      <span style={{ color: "red" }}>ismingizni kiriting</span>{" "}
                     </Fade>
                   ) : null}
                 </div>
@@ -101,11 +106,11 @@ export default function ProductItem() {
                     formatChars={{ b: "[0-9]" }}
                     mask="+998 (bb) bbb-bb-bb"
                     maskChar="_"
-                    name="phone"
-                    value={obj?.phone}
+                    name="order_phone"
+                    value={obj?.order_phone}
                     onChange={handleChange}
                   />
-                  {err?.phone === true ? (
+                  {err?.order_phone === true ? (
                     <Fade bottom>
                       <span style={{ color: "red" }}>
                         telefon raqamingizni kiriting

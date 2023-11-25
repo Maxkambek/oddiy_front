@@ -11,19 +11,20 @@ import Axios from "../utils/httpClinet";
 
 export default function CategoriesItem() {
   const { name } = useParams();
-  const [result, setResult] = useState({});
+  const [result, setResult] = useState([]);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     getCategoryItem();
     getCategory();
+    window?.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
   const getCategoryItem = () => {
     Axios()
       .get(`/main/product/?category_name=${name}`)
       .then((res) => {
-        setResult(res?.data[0]);
+        setResult(res?.data);
       })
       .catch((err) => console.log(err, "categoryitem"))
       .finally(() => {});
@@ -45,13 +46,9 @@ export default function CategoriesItem() {
       {console.log(result, "")}
       <div className="container">
         <CategoriesItemStyle>
+          {console.log(result, "ss")}
           <div className="title_c">
-            <h1>
-              {
-                // c?.name
-                result?.category?.name
-              }
-            </h1>
+            <h1>{result[0]?.category?.name}</h1>
 
             <img src={"c?.title_img"} alt="" />
           </div>
@@ -60,18 +57,14 @@ export default function CategoriesItem() {
               {category.map((item) => {
                 return (
                   <Link
-                    to={`/category/${item?.slug}`}
+                    to={`/category/${item?.name}`}
                     className="products-item"
                     key={item?.id + "asdfg"}
                   >
                     <p>{item?.name}</p>
-                    {/* {item?.slug === slug ? (
-                      <>
-                      </>
-                    ) : null} */}
+
                     <img
                       src="/img/arrow_right.svg"
-                      alt=""
                       className="products-item_img"
                     />
                   </Link>
@@ -79,9 +72,11 @@ export default function CategoriesItem() {
               })}
             </div>
             <div className="cards">
-              {product.map((item, i) => {
-                return <Card key={i + "qmnwe"} data={item} index={i} />;
-              })}
+              <div className="cards-items">
+                {result.map((item, i) => {
+                  return <Card key={i + "qmnwe"} data={item} index={i} />;
+                })}
+              </div>
             </div>
           </div>
           <div className="title">Bizning afzalliklarimiz</div>

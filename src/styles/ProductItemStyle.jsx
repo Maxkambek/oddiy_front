@@ -6,6 +6,12 @@ export const ProductItemStyle = styled.div`
   margin-bottom: 50px;
   .buy {
     .buy-inputs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      @media (max-width: 450px) {
+        display: block;
+      }
       input {
         height: 60px;
         border-radius: 10px;
@@ -87,6 +93,7 @@ export const ProductItemStyle = styled.div`
         width: 650px;
         margin-right: 56px;
         border-radius: 10px;
+        padding: 99px;
         background: #edeeff;
       }
       .product-item_text {
@@ -118,6 +125,9 @@ export const ProductItemStyle = styled.div`
       }
       @media (max-width: 992px) {
         margin-bottom: 60px;
+        img {
+          padding: 50px;
+        }
       }
     }
   }

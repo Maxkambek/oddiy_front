@@ -17,6 +17,7 @@ export const CardStyle = styled.div`
     margin-bottom: 15px;
     position: relative;
     img {
+      padding: 28px;
       transition: 1s ease;
       -o-object-fit: cover;
       object-fit: cover;
