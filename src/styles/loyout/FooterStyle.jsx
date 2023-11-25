@@ -30,7 +30,7 @@ export const FooterStyle = styled.div`
           margin: 0 14px;
           list-style-type: none;
           border-radius: 50%;
-          opacity: 0.2;
+          opacity: 0.4;
           transition: all 0.1s ease;
         }
         li:hover {

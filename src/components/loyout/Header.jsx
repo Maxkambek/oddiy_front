@@ -20,6 +20,8 @@ export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [active, setActive] = useState(false);
   const btnRef = React.useRef();
+
+  const token = localStorage.getItem("token");
   // const ref = useRef(null);
 
   // useEffect(() => {
@@ -81,46 +83,72 @@ export default function Header() {
                   <p>Hisob</p>
                 </div>
                 <ul>
-                  <div>
-                    <Link to={"/login"}>
-                      <span
-                        style={{
-                          display: "flex",
-                          justifyContent: "left",
-                          alignItems: "center",
-                        }}
-                      >
-                        <img
-                          src="/img/Vector.png"
-                          alt=""
-                          style={{ width: "19px", marginRight: "5px" }}
-                        />
-                        Kirish
-                      </span>
-                    </Link>
-                  </div>
-                  <div>
-                    <Link to={"/sign-up"}>
-                      <span
-                        style={{
-                          display: "flex",
-                          justifyContent: "left",
-                          alignItems: "center",
-                        }}
-                      >
-                        <span
-                          style={{
-                            width: "19px",
-                            height: "19px",
-                            marginRight: "5px",
-                            color: "#3f48cc",
-                          }}
-                          className="fa-solid fa-right-to-bracket fa-md"
-                        ></span>
-                        Ro'yxatdan o'tish
-                      </span>
-                    </Link>
-                  </div>
+                  {console.log(token, "ss")}
+                  {token ? (
+                    <>
+                      <div>
+                        <Link to={"/admin"}>
+                          <span
+                            style={{
+                              display: "flex",
+                              justifyContent: "left",
+                              alignItems: "center",
+                            }}
+                          >
+                            <img
+                              src="/img/Vector.png"
+                              alt=""
+                              style={{ width: "19px", marginRight: "5px" }}
+                            />
+                            Mening profilim
+                          </span>
+                        </Link>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div>
+                        <Link to={"/login"}>
+                          <span
+                            style={{
+                              display: "flex",
+                              justifyContent: "left",
+                              alignItems: "center",
+                            }}
+                          >
+                            <img
+                              src="/img/Vector.png"
+                              alt=""
+                              style={{ width: "19px", marginRight: "5px" }}
+                            />
+                            Kirish
+                          </span>
+                        </Link>
+                      </div>
+                      <div>
+                        <Link to={"/sign-up"}>
+                          <span
+                            style={{
+                              display: "flex",
+                              justifyContent: "left",
+                              alignItems: "center",
+                            }}
+                          >
+                            <span
+                              style={{
+                                width: "19px",
+                                height: "19px",
+                                marginRight: "5px",
+                                color: "#3f48cc",
+                              }}
+                              className="fa-solid fa-right-to-bracket fa-md"
+                            ></span>
+                            Ro'yxatdan o'tish
+                          </span>
+                        </Link>
+                      </div>
+                    </>
+                  )}
                 </ul>
               </StyledElement>
             </div>

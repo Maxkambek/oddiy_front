@@ -6,6 +6,7 @@ import Axios from "../../utils/httpClinet";
 import { Fade } from "react-reveal";
 import { Spinner } from "@chakra-ui/react";
 import InputMask from "react-input-mask";
+import { setToken } from "../../utils/tokenStorge";
 
 export default function Login() {
   const [obj, setObj] = useState({ phone: "" });
@@ -43,6 +44,8 @@ export default function Login() {
         .then((res) => {
           if (res?.data.message === "OK") {
             navigate("/");
+            setToken(res?.data?.token);
+            console.log(res?.data, "eee");
           }
         })
         .catch((err) => {

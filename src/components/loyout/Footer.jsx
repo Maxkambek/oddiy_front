@@ -13,23 +13,23 @@ export default function Footer() {
           <div className="socials">
             Ijtimoiy tarmoqlarimiz
             <ul>
-              <li>
+              {/* <li>
                 <Link to="">
                   <span className="fa fa-facebook fa-brands fa-xl"></span>
                 </Link>
-              </li>
-              <li>
+              </li> */}
+              {/* <li>
                 <Link to="">
                   <span className="fa-youtube fa-brands fa-xl"></span>
                 </Link>
-              </li>
+              </li> */}
               <li>
-                <Link to="">
+                <Link to="https://www.instagram.com/odiy_uzz/" target="blank">
                   <span className="fa fa-instagram fa-brands fa-xl"></span>
                 </Link>
               </li>
               <li>
-                <Link to="">
+                <Link to="https://t.me/odiy_uzz" target="blank">
                   <span className="fa fa-telegram fa-brands fa-xl"></span>
                 </Link>
               </li>
