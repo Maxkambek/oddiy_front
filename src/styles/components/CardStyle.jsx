@@ -9,6 +9,7 @@ export const CardStyle = styled.div`
   flex-direction: column;
   justify-content: space-between;
   .img-card {
+    overflow: hidden;
     border-radius: 10px;
     background: #edeeff;
     width: 100%;
@@ -16,6 +17,7 @@ export const CardStyle = styled.div`
     border: none;
     margin-bottom: 15px;
     position: relative;
+    transition: all 0.5s ease;
     img {
       padding: 28px;
       transition: 1s ease;
@@ -30,10 +32,12 @@ export const CardStyle = styled.div`
       background: #edeeff;
     }
   }
+
   .card_name {
     color: #3f48cc;
     font-family: "Gilroy-SemiBold";
     font-size: 26px;
+    transition: all 0.5s ease;
     font-weight: 400;
     margin-bottom: 4px;
     line-height: normal;
@@ -42,6 +46,9 @@ export const CardStyle = styled.div`
     }
     @media (max-width: 1555px) {
       font-size: 20px;
+    }
+    :hover {
+      opacity: 0.8;
     }
   }
   .price {
@@ -59,11 +66,11 @@ export const CardStyle = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-
       @media (max-width: 1555px) {
         font-size: 18px;
       }
     }
+
     .buy {
       display: flex;
       align-items: center;
@@ -77,6 +84,14 @@ export const CardStyle = styled.div`
         font-size: 20px;
         font-weight: 400;
       }
+      :hover {
+        opacity: 0.8;
+      }
+    }
+  }
+  :hover {
+    .img-card img {
+      transform: scale(1.2);
     }
   }
 `;

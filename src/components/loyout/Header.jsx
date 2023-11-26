@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { defaultOptions } from "../../const/const";
 import { HeaderStyle } from "../../styles/loyout/HeaderStyle";
 import Select from "react-select";
@@ -15,12 +15,13 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { StyledElement } from "../../pages/components/AccountModalStyle";
+import { removeToken } from "../../utils/tokenStorge";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [active, setActive] = useState(false);
   const btnRef = React.useRef();
-
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
   // const ref = useRef(null);
 
@@ -83,26 +84,60 @@ export default function Header() {
                   <p>Hisob</p>
                 </div>
                 <ul>
-                  {console.log(token, "ss")}
                   {token ? (
                     <>
+                      {[
+                        {
+                          name: "Mening profilim",
+                          link: "/admin",
+                          id: 1,
+                          icon: "fa-regular fa-user",
+                        },
+                        {
+                          name: "Sozlamalar",
+                          link: "/admin/settings",
+                          id: 2,
+                          icon: "fa-solid fa-gear",
+                        },
+                      ].map((item, i) => {
+                        return (
+                          <div key={i}>
+                            <Link to={item?.link}>
+                              <span
+                                style={{
+                                  display: "flex",
+                                  justifyContent: "left",
+                                  alignItems: "center",
+                                }}
+                              >
+                                <span
+                                  style={{ width: "19px", marginRight: "5px" }}
+                                  className={item?.icon}
+                                ></span>
+                                {item?.name}
+                              </span>
+                            </Link>
+                          </div>
+                        );
+                      })}
                       <div>
-                        <Link to={"/admin"}>
+                        <span
+                          style={{
+                            display: "flex",
+                            justifyContent: "left",
+                            alignItems: "center",
+                          }}
+                          onClick={() => {
+                            removeToken();
+                            navigate("login");
+                          }}
+                        >
                           <span
-                            style={{
-                              display: "flex",
-                              justifyContent: "left",
-                              alignItems: "center",
-                            }}
-                          >
-                            <img
-                              src="/img/Vector.png"
-                              alt=""
-                              style={{ width: "19px", marginRight: "5px" }}
-                            />
-                            Mening profilim
-                          </span>
-                        </Link>
+                            style={{ width: "19px", marginRight: "5px" }}
+                            className={"fa-solid fa-right-from-bracket"}
+                          ></span>
+                          Chiqish
+                        </span>
                       </div>
                     </>
                   ) : (
