@@ -121,12 +121,12 @@ export default function ProductItem() {
               </div>
               <div className="buy-price">
                 O‘zbekiston bo‘ylab yetkazib berish narxi:{" "}
-                {loading === true ? (
+                {/* {loading === true ? (
                   <Skeleton count={1} />
                 ) : (
                   product?.price?.toLocaleString().replace(/,/g, " ")
-                )}{" "}
-                so‘m
+                )}{" "} */}
+                30 000 so‘m
               </div>
               <div className="buy-button ">
                 <button type="submit">

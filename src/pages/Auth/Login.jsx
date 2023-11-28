@@ -43,7 +43,7 @@ export default function Login() {
         .post("/user/login/", obj)
         .then((res) => {
           if (res?.data.message === "OK") {
-            navigate("/");
+            navigate("/admin");
             setToken(res?.data?.token);
             console.log(res?.data, "eee");
           }

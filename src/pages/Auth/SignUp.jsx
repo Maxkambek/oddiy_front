@@ -85,7 +85,7 @@ export default function SignUp() {
         .post("/user/verify-phone/", obj)
         .then((res) => {
           if (res?.data?.message === "User verified") {
-            navigate("/");
+            navigate("/admin");
           }
         })
         .catch((err) => {

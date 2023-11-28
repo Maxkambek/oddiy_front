@@ -91,7 +91,7 @@ export const ProductItemStyle = styled.div`
       img {
         /* border: 1px solid red; */
         width: 650px;
-        margin-right: 56px;
+        margin-right: 46px;
         border-radius: 10px;
         padding: 99px;
         background: #edeeff;

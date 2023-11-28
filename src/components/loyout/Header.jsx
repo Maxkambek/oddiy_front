@@ -13,9 +13,10 @@ import {
   DrawerOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StyledElement } from "../../pages/components/AccountModalStyle";
 import { removeToken } from "../../utils/tokenStorge";
+import Axios from "../../utils/httpClinet";
 
 export default function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -23,6 +24,7 @@ export default function Header() {
   const btnRef = React.useRef();
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const [category, setCategory] = useState([]);
   // const ref = useRef(null);
 
   // useEffect(() => {
@@ -34,6 +36,30 @@ export default function Header() {
   //     window.removeEventListener("click", onClick);
   //   };
   // }, [active]);
+  const nav = useNavigate();
+
+  const getCategory = () => {
+    Axios()
+      .get("/main/category/")
+      // eslint-disable-next-line no-unused-vars
+      .then((res) => {
+        console.log(res, "res");
+        setCategory(res.data);
+      })
+      .catch((err) => console.log(err))
+      .finally(() => {});
+  };
+
+  useEffect(() => {
+    getCategory();
+  }, []);
+
+  console.log(category);
+
+  const options = [];
+  category.map((item) => {
+    options.push({ value: item.name, label: item.name });
+  });
 
   return (
     <HeaderStyle>
@@ -55,7 +81,12 @@ export default function Header() {
             </Link>
             <div className="search">
               <form action="">
-                <Select {...defaultOptions} placeholder="Barchasi" />
+                <Select
+                  {...defaultOptions}
+                  options={options}
+                  onChange={(choice) => nav(`/category/${choice.value}`)}
+                  placeholder="Barchasi"
+                />
                 <input type="text" placeholder="qidirish.." />
                 <button>
                   <img src="/img/search.png" alt="" />

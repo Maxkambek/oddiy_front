@@ -10,26 +10,24 @@ import { HomeStyles } from "../styles/HomeStyle";
 import Axios from "../utils/httpClinet";
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
 import { FreeMode, Grid, Pagination } from "swiper/modules";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
 import { Zoom } from "react-reveal";
 import { CategoryStyle } from "../styles/components/CategoryStyle";
 import { Link } from "react-router-dom";
-
 // import './styles.css';
 
 export default function Home() {
   const [product, setProduct] = useState([]);
+  const [product2, setProduct2] = useState([]);
   const [category, setCategory] = useState([]);
 
   useEffect(() => {
     getCategory();
     getProduct();
+    getProduct2();
   }, []);
 
   const getCategory = () => {
@@ -46,9 +44,18 @@ export default function Home() {
 
   const getProduct = () => {
     Axios()
-      .get("/main/product/")
+      .get("/main/product-popular/")
       .then((res) => {
         setProduct(res?.data);
+      })
+      .catch((err) => console.log(err, "err product"))
+      .finally(() => {});
+  };
+  const getProduct2 = () => {
+    Axios()
+      .get("/main/product-new/")
+      .then((res) => {
+        setProduct2(res?.data);
       })
       .catch((err) => console.log(err, "err product"))
       .finally(() => {});
@@ -146,7 +153,7 @@ export default function Home() {
           <div className="popular-categories">
             <div className="title">Yangi maxsulotlar</div>
             <div className="popular-categories-items">
-              {product.map((item, i) => {
+              {product2.map((item, i) => {
                 return <Card key={i + "popular"} data={item} index={i} />;
               })}
             </div>
